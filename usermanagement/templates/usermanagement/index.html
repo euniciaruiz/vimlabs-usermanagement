@@ -1,0 +1,11 @@
+<h1>Users</h1>
+
+{% if user_list %}
+<ul>
+        {% for user in user_list %}
+                <li><a href="/usermanagement/{{user.hash_code}}/">{{user.user_name}}</li>
+        {% endfor %}
+</ul>
+{% else %}
+        <p>No users found!</p>
+{%endif%}
