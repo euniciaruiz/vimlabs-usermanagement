@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 import datetime
 from django.db import models
+from django.core.urlresolvers import reverse
 
 def _generateHash():
         return datetime.datetime.now().strftime("%Y%m%d%H%M%S")
@@ -26,3 +27,6 @@ class User(models.Model):
         
         def __str__(self):
                 return self.hash_code
+        
+        def get_absolute_url(self):
+                return reverse('usermanagement:user_edit', kwargs={'pk': self.pk})

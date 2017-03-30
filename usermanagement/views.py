@@ -20,3 +20,8 @@ class UserCreate(CreateView):
         model = User
         fields = ['user_name', 'role', 'email']
         success_url = reverse_lazy('usermanagement:user_list')
+
+class UserUpdate(UpdateView):
+        model = User
+        fields = ['user_name', 'role', 'email']
+        success_url = reverse_lazy('usermanagement:user_list')
