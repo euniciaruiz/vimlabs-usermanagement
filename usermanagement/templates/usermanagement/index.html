@@ -1,11 +1,30 @@
-<h1>Users</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>User List</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+        <div class="container">
+                <h1>Users</h1>
 
-{% if user_list %}
-<ul>
-        {% for user in user_list %}
-                <li><a href="/usermanagement/{{user.hash_code}}/">{{user.user_name}}</li>
-        {% endfor %}
-</ul>
-{% else %}
-        <p>No users found!</p>
-{%endif%}
+                {% if user_list %}
+                <table class="table table-striped">
+                        {% for user in user_list %}
+                                <tr>
+                                        <td><a href="{% url 'usermanagement:detail' pk=user.hash_code %}">{{user.user_name}}</a></td>
+                                        <td>{{user.email}}</td>
+                                </tr>
+                        {% endfor %}
+                </table>
+
+                {% else %}
+                        <p>No users found!</p>
+                {%endif%}
+        </div>
+</body>
+</html>

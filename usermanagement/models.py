@@ -3,23 +3,26 @@ import datetime
 from django.db import models
 
 def _generateHash():
-        return 'u-'+datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+        return datetime.datetime.now().strftime("%Y%m%d%H%M%S")
 
-# Create your models here.
-class Manager(models.Model):
-        user_name = models.CharField(max_length=200)
-        email = models.CharField(max_length=200)
-        hash_code = models.CharField(max_length=500, primary_key=True, default=_generateHash, unique=True, editable=False)
+# Create your models here
 
 class User(models.Model):
-        TESTER = 'T'
-        DEVELOPER = 'D'
+        MANAGER = 'm'
+        USER = 'u'
 
         ROLES = (
-                        (TESTER, 'Tester'), 
-                        (DEVELOPER, 'Developer'),
+                        (MANAGER, 'Manager'), 
+                        (USER, 'User'),
                 )
         user_name = models.CharField(max_length=200)
         email = models.CharField(max_length=200)
-        roles = models.CharField(max_length=1, choices=ROLES, null=True)    
+        role = models.CharField(max_length=1, choices=ROLES, null=True)
         hash_code = models.CharField(max_length=500, primary_key=True, default=_generateHash, unique=True, editable=False)
+
+        def save(self):
+                self.hash_code = self.role+'-'+self.hash_code+self.user_name
+                super(User, self).save()
+        
+        def __str__(self):
+                return self.hash_code

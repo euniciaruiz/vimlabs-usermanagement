@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <title>{{user.user_name}}</title>
+</head>
+<body>
+        <div class="container">
+                <form>
+                        <div class="form-group" >
+                                <label for="user_name">Username</label>
+                                <input type="text" class="form-control" id="username" placeholder="Username" value="{{user.user_name}}">
+                        </div>
+                        <div class="form-group">
+                                <label for="email">User Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Email" value="{{user.email}}">
+                        </div>
+                </form>
+        </div>
+</body>
+</html>
