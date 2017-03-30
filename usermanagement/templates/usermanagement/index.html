@@ -14,10 +14,21 @@
 
                 {% if user_list %}
                 <table class="table table-striped">
+                        <tr>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                        </tr>
                         {% for user in user_list %}
+                                
                                 <tr>
                                         <td><a href="{% url 'usermanagement:detail' pk=user.hash_code %}">{{user.user_name}}</a></td>
                                         <td>{{user.email}}</td>
+                                        {% if user.role == 'm'%}
+                                                <td>Manager</td>
+                                        {% else %}
+                                                <td>User</td>
+                                        {%endif%}
                                 </tr>
                         {% endfor %}
                 </table>
