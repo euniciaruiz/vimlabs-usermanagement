@@ -5,6 +5,7 @@ from . import views
 app_name = 'usermanagement'
 
 urlpatterns = [
-        url(r'^$', views.IndexView.as_view(), name = 'index'),
+        url(r'^$', views.UserList.as_view(), name = 'user_list'),
+        url(r'^new$', views.UserCreate.as_view(), name="user_new"),
         url(r'^(?P<pk>[a-zA-Z0-9_.-]+)/$', views.DetailView.as_view(), name="detail"),
 ]
