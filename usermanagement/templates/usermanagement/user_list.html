@@ -18,10 +18,12 @@
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Role</th>
+                                <th>Action</th>
                         </tr>
                         {% for user in user_list %}
                                 
                                 <tr>
+                                        <td><a href="{% url 'usermanagement:detail' pk=user.hash_code %}">{{user.user_name}}</a></td>
                                         <td>{{user.email}}</td>
                                         {% if user.role == 'm'%}
                                                 <td>Manager</td>
@@ -29,7 +31,7 @@
                                                 <td>User</td>
                                         {%endif%}
                                         <td>
-                                                <a class="btn btn-default" href="{% url 'usermanagement:user_edit' pk=user.hash_code %}">edit</a>
+                                                <a href="{% url 'usermanagement:user_edit' pk=user.hash_code %}">edit</a>
                                         </td>
                                 </tr>
                         {% endfor %}
