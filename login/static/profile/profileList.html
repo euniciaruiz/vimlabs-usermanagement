@@ -1,0 +1,29 @@
+<h1>{{ title }}</h1>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="profile in profiles">
+            <td>{{ profile.first_name }}</td>
+            <td>{{ profile.last_name }}</td>
+            <td>{{ profile.username }}</td>
+            <td>{{ profile.email }}</td>
+        </tr>
+    </tbody>
+
+</table>
+
+<a href="" ui-sref=".create">
+    create new profile
+</a>
+
+<div ui-view></div>
