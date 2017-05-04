@@ -29,6 +29,6 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^$', RedirectView.as_view(url="/static/index.html"), name="home"),
     url(r'^api-token-auth/', obtain_jwt_token),
-    url(r'^admin/', admin.site.urlsapi),
+    url(r'^admin/', admin.site.urls),
 
 ]

@@ -4,7 +4,7 @@ angular
     .module('app.profile')
     .controller('createProfileController', createProfileController);
 
-function createProfileController($scope, $http, $resource, $window){
+function createProfileController($scope, $http, $resource, $state){
     $scope.createProfile = createProfile;
 
     function createProfile(){
@@ -17,7 +17,7 @@ function createProfileController($scope, $http, $resource, $window){
         };
         $http.post('/api/users/', data)
             .then(function(response){
-                $window.location.href="/";
+                $state.go('profile', {}, {reload:true});
         });
     }
 }

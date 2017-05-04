@@ -6,7 +6,9 @@ angular
         'ngResource',
         'angular-storage',
         'angular-jwt',
-        'app.profile'
+        'ngStorage',
+        'app.auth',
+        'app.profile',
     ])
     .config(function($stateProvider, $urlRouterProvider, $httpProvider, jwtInterceptorProvider){
         jwtInterceptorProvider.tokenGetter = function(store){

@@ -5,8 +5,12 @@ from .models import Profile
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('url', 'username', 'email', 'first_name', 'last_name', 'password')
+        fields = ('username', 'email', 'first_name', 'last_name', 'password')
         permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    
+    def create(self, validated_data):
+        u = User.objects.create_user(**validated_data)
+        return u
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
