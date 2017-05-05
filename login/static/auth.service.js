@@ -7,9 +7,10 @@ angular
         obtainToken: function(username, password){
             return $http.post('/api-token-auth/', {username: username, password: password})
                 .then(function(result){
-                    if(result.status == 404){
-                        return {success:false}
-                    }else{
+                    if(result.status == 404 || result.status == 400){
+                        return {success:false};
+                    }
+                    else{
                         return {success: true, token: result.data.token, user: result.data.user};
                     }
                 });

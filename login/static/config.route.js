@@ -42,12 +42,11 @@ function routeConfig($stateProvider, $urlRouterProvider, $httpProvider){
 function run($state, $rootScope, $localStorage, $location, authManager, authService){
     authManager.checkAuthOnRefresh();
 
-    authManager.redirectWhenUnauthenticated();
-
     $rootScope.$state = $state;
 
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-        if( !localStorage.isAuthenticated){
+        console.log($localStorage.isAuthenticated);
+        if( !$localStorage.isAuthenticated){
             $location.path('/login');
         }
     });
@@ -55,7 +54,7 @@ function run($state, $rootScope, $localStorage, $location, authManager, authServ
 
 function loginController($scope, $state, $window, $localStorage,
                          $sessionStorage, authManager, authService) {
-
+    $scope.logged = true;
     $scope.login = function () {
         var username = $scope.username;
         var password = $scope.password;
@@ -65,7 +64,7 @@ function loginController($scope, $state, $window, $localStorage,
                     authManager.authenticate();
                     authService.authenticate(result.token, result.user);
                 }
-            });
+        });
     }
 }
 
