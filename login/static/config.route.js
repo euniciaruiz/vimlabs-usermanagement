@@ -32,6 +32,11 @@ function routeConfig($stateProvider, $urlRouterProvider, $httpProvider){
             templateUrl: 'profile/create-profile.html',
             controller: 'createProfileController'
         })
+        .state('profile.details', {
+            url: 'edit/:id',
+            templateUrl: 'profile/profile-detail.html',
+            controller: 'profileController'
+        })
         .state('login', {
             url: "/login",
             templateUrl: "login/login.html",
