@@ -13,8 +13,10 @@ function createProfileController($scope, $http, $resource, $state){
             last_name: $scope.last_name,
             username: $scope.username,
             email: $scope.email,
-            password: $scope.password
+            password: $scope.password,
+            role: $scope.role
         };
+        console.log($scope.role);
         $http.post('/api/users/', data)
             .then(function(response){
                 $state.go('profile', {}, {reload:true});

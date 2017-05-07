@@ -11,7 +11,7 @@ function profileListController($scope, $http, $resource, $state, authService){
     getProfiles();
 
     function getProfiles(){
-        $http.get('/api/users')
+        $http.get('/api/profiles')
             .then(function(response){
                 $scope.profiles = response.data;
             });

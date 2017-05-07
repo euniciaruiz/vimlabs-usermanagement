@@ -50,7 +50,6 @@ function run($state, $rootScope, $localStorage, $location, authManager, authServ
     $rootScope.$state = $state;
 
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-        console.log($localStorage.isAuthenticated);
         if( !$localStorage.isAuthenticated){
             $location.path('/login');
         }

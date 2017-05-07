@@ -10,6 +10,7 @@
             <th>Last Name</th>
             <th>Username</th>
             <th>Email</th>
+            <th>Role</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -20,11 +21,12 @@
             <td>{{ profile.last_name }}</td>
             <td>{{ profile.username }}</td>
             <td>{{ profile.email }}</td>
+            <td>{{ profile.role }}</td>            
             <td>
-                <a ui-sref=".details({id:profile.id})">
+                <a ui-sref=".details({id:profile.uid})">
                     <button class="btn btn-primary">Edit</button>
                 </a>
-                <button ng-click="deleteProfile(profile.id)" class="btn btn-danger">
+                <button ng-click="deleteProfile(profile.uid)" class="btn btn-danger">
                     Delete
                 </button>
             </td>

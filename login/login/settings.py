@@ -84,8 +84,6 @@ REST_FRAMEWORK = {
 
 JWT_AUTH = {
     'JWT_SECRET_KEY': SECRET_KEY,
-    'JWT_RESPONSE_PAYLOAD_HANDLER':
-    'loginapp.utils.jwt_response_payload_handler',
     'JWT_AUTH_HEADER_PREFIX': 'Bearer',
 }
 
